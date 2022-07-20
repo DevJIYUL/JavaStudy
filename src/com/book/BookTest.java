@@ -1,0 +1,10 @@
+package com.book;
+
+public class BookTest {
+
+	public static void main(String[] args) {
+		BookManager bt;
+
+	}
+
+}

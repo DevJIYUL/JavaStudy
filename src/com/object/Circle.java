@@ -12,10 +12,10 @@ public class Circle {
 	}
 
 	public double getArea() {
-		return 2*radius*3.14;
+		return 2*radius*Math.PI;
 	}
 	public double getCircum() {
-		return radius*radius*3.14;
+		return radius*radius*Math.PI;
 	}
 	public static void main(String[] args) {
 		Circle c = new Circle();
