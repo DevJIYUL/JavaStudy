@@ -6,10 +6,12 @@ public class BookTest {
 		Book b1 = new Book("21424","Java pro","김하나","jaen.kr",15000,"Java 기본 문법");
 		Book b2 = new Book("21425","Java pro2","김하나","jaen.kr",25000,"Java 응용");
 		Book b3 = new Book("35355","분석설계","소나무","jaen.kr",30000,"SW 모델링");
+		Book b4 = new Magazine("45234", "TIME", "JIM CARRY", "TIME", 2000, "WORLD ISSUE", 2022, 4);
 		BookManager bm = new BookManager();
 		bm.add(b1);
 		bm.add(b2);
 		bm.add(b3);
+		bm.add(b4);
 		System.out.println("**************************도서목록**************************");
 		Book[] books = bm.getList();
 		printBookInfo(books);
@@ -31,7 +33,7 @@ public class BookTest {
 			if (b == null) {
 				break;
 			}
-			System.out.printf("%-8s | %-10s | %-5s | %-8s | %-8d | %-10s %n",b.isbn,b.title,b.author,b.publisher,b.price,b.desc);
+			System.out.printf("%-8s | %-10s | %-5s | %-8s | %-8d | %-10s %n",b.getIsbn(),b.getTitle(),b.getAuthor(),b.getPublisher(),b.getPrice(),b.getDesc());
 		}
 	}
 }

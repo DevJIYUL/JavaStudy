@@ -33,7 +33,7 @@ public class MemberManager {
 	// 회원 삭제
 	void deleteMember(int num) {
 		for (int i = 0; i < members.length; i++) {
-			if (members[i].num == num) {
+			if (members[i].getNum() == num) {
 				members[i] = members[cnt-1];
 				members[cnt-1] = null;
 				--cnt;
@@ -63,7 +63,7 @@ public class MemberManager {
 			if (m == null) {
 				break;
 			}
-			if (m.num == num) {
+			if (m.getNum() == num) {
 				if (m == null) continue;
 				return m;
 				
@@ -78,7 +78,7 @@ public class MemberManager {
 			if (m == null) {
 				return tmp;
 			}
-			if (m.name.equals(name)) {
+			if (m.getName().equals(name)) {
 				tmp[index++] = m;
 			}
 		}
@@ -89,8 +89,8 @@ public class MemberManager {
 			if (members[i] == null) {
 				break;
 			}
-			if (members[i].num == num) {
-				members[i].address = addre;
+			if (members[i].getNum() == num) {
+				members[i].setAddress(addre);
 				return members[i];
 			}
 		}

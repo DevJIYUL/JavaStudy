@@ -13,7 +13,7 @@ public class BookManager {
 	}
 	public void remove(String isbn) {
 		for (int i = 0; i < books.length; i++) {
-			if (books[i].isbn.equals(isbn)) {
+			if (books[i].getIsbn().equals(isbn)) {
 				books[i] = books[size-1];
 				books[size-1] = null;
 				size--;
@@ -25,7 +25,7 @@ public class BookManager {
 	}
 	public Book searchByIsbn(String isbn) {
 		for (Book b : books) {
-			if (b.isbn.equals(isbn)) {
+			if (b.getIsbn().equals(isbn)) {
 				return b;
 			}
 		}

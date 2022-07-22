@@ -1,0 +1,43 @@
+class : data + method 로 이뤄진 구조 like a template
+object : class로 부터 생성된 실체 (= instance)
+	키워드 new 로 객체 생성
+
+class Test{} // class 설계
+Test t = new Test();//객체 생성
+t.go();//객체 사용
+
+-생성자
+1.클래스 이름과 동일한 이름의함수
+2.리턴 타입은 적지 않음
+3.객체의 생성시에 자동으로 호출됨
+
+Test t = new Test();
+1.heap에 객체를 위한 공간 할당
+2.instance 변수 자동 초기화
+{힙에서 int는 0으로 String은 null으로 불은false로 초기화 시킨다}
+3.instance 변수 명시적 초기화
+{사용자가 따로 주는 값이 있으면 명시적 초기화가 일어난다}
+4.생성자 호출
+5.참조값 반환
+
+default 생성자
+파라미터가 비어 있는 생성자
+
+파라미터가 있는 생성자
+ex ) Car(int num){}
+ex ) Car(int num,String model){}
+ex ) Car(int num,String model,String owner){}
+생성자는 여러개 생길 수 있다.
+
+this()
+생성자에서 생성자 호출
+public Car(){
+    this(0); // Car(int num) 호출
+}
+public Car(int num){
+    this(num,"dao");
+}
+public Car(int num, String model){
+    this.num = num;
+    this.model = model;
+}
