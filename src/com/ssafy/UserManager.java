@@ -40,7 +40,6 @@ public class UserManager {
 		}
 
 		return null;    
-	System.out.println();
 	}
 	
 }

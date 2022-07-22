@@ -24,7 +24,7 @@ public class MemberTest {
 		if (!flag) {
 			System.out.println("더 이상 추가가 안됩니다.");
 		}
-		flag = manager.addMember(new Member(555,"jam carry","LA",52));
+		flag = manager.addMember(new Member(555,"jim carry","LA",52));
 		if (!flag) {
 			System.out.println("더 이상 추가가 안됩니다.");
 		}

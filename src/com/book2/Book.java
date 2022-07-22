@@ -1,4 +1,4 @@
-package com.book;
+package com.book2;
 
 public class Book {
 	private String isbn;
