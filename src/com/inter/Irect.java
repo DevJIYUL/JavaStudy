@@ -1,9 +1,9 @@
 package com.inter;
 
-public class IRect implements IShape{
+public class Irect implements Ishape{
 	int width, height;	
 	
-	public IRect(int width, int height) {
+	public Irect(int width, int height) {
 		this.width = width;
 		this.height = height;
 	}

@@ -4,9 +4,9 @@ interface Seoul{}
 class Boat{}
 
 //interface IShape를 상속 받아 추상메소드를 완성 시켜 놔야 됨 
-public class ICircle implements IShape{
+public class Icircle implements Ishape{
 	int r;
-	public ICircle(int r) {
+	public Icircle(int r) {
 		
 		this.r = r;
 	}
