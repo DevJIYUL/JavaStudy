@@ -1,6 +1,21 @@
 package com.inter;
 
-public interface Irect {
-	double getArea();
-	double getCircum();
+public class IRect implements IShape{
+	int width, height;	
+	
+	public IRect(int width, int height) {
+		this.width = width;
+		this.height = height;
+	}
+
+	@Override
+	public double getArea() {
+		return width * height;
+	}
+
+	@Override
+	public double getCircum() {
+		return 2*(width + height);
+	}
+
 }

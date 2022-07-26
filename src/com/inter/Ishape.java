@@ -1,5 +1,8 @@
 package com.inter;
 
-public interface Ishape extends Icircle,Irect {
-
+public interface IShape {
+	//public, abstract
+	double getArea();
+	double getCircum();
+	
 }
