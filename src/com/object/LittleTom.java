@@ -6,11 +6,14 @@ class Tom{
 		System.out.println("Tom-Hello");
 	}
 }
-
+interface Hillary{
+	int age = 48;
+}
 class Bill{
 	
 }
-public class LittleTom extends Tom{
+public class LittleTom extends Tom implements Hillary{
+	// little tomì˜ í•„ë“œëŠ” 
 	int age = 20;
 	
 	@Override
@@ -22,14 +25,13 @@ public class LittleTom extends Tom{
 		System.out.println(age);
 		System.out.println(this.age);
 		System.out.println(super.age);
+		System.out.println(Hillary.age);
 	}
 	
 	public static void main(String[] args) {
 		Tom t = new LittleTom();
-		// ¿À¹ö¶óÀÌµùÀº ¸Ş¼Òµå¿¡¸¸ Àû¿ëµÇ´Â °ÍÀÌ´Ù.
-		t.hello(); // "LittleTom-Hello"°¡ Ãâ·ÂµÈ´Ù
-		// ÇÊµå µ¥ÀÌÅÍ´Â ¿À¹ö¶óÀÌµù µÇÁö ¾Ê´Â´Ù.
-		System.out.println(t.age); // ÇÊµå´Â ·¹ÆÛ·±½ºÀÇ Å¸ÀÔÀ» µû¸¥´Ù. "50"ÀÌ Ãâ·ÂµÈ´Ù.
+		t.hello();
+		System.out.println(t.age);
 		LittleTom lt = new LittleTom();
 		lt.hello();
 		lt.test();
@@ -39,6 +41,9 @@ public class LittleTom extends Tom{
 		
 		if (lt instanceof Tom) {
 			System.out.println("instance of Tom");
+		}
+		if (lt instanceof Hillary) {
+			System.out.println("instance of Hillary");
 		}
 		if (lt instanceof Object) {
 			System.out.println("instance of Object");
