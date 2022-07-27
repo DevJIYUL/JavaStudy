@@ -1,60 +1,73 @@
 package com.inherit;
-// ºÎ¸ğ Å¬·¡½º ,super class,base class
-class Parent{
+
+import com.exception.MyException;
+
+// ï¿½Î¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ,super class,base class
+class Parent {
 	String name = "stan smith";
-	String address ="Seoul";
-	
-	Parent(){
-		System.out.println("Parent »ı¼ºÀÚ");
+	String address = "Seoul";
+
+	Parent() {
+		System.out.println("Parent ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	public String getAddress() {
+
+	public String getAddress() throws Exception{
 		return address;
 	}
-	
-	
+
 }
-// ÀÚ½Ä Å¬·¡½º ,sub class, derived class
-public class Child extends Parent{
+
+// ï¿½Ú½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ,sub class, derived class
+public class Child extends Parent {
 	String email;
-	
-	Child(){
-		System.out.println("Child »ı¼ºÀÚ");
+
+	Child() {
+		System.out.println("Child ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}
-	
-	// getName() ÀçÁ¤ÀÇ : method overriding. ºÎ¸ğ¿¡°Ô¼­ ¹°·Á¹ŞÀº ¸Ş¼Òµå¸¦ ÀçÁ¤ÀÇ.
-	// method overridong Á¶°Ç : ¸Ş¼Òµå ¸®ÅÏ Å¸ÀÔ, ¸Ş¼Òµå ÀÌ¸§, ÆÄ¶ó¸ŞÅÍ¸®½ºÆ®°¡ ¹İµå½Ã µ¿ÀÏÇØ¾ß ÇÔ
-	// ¼ö½Ä¾î ( Á¢±Ù ÁöÁ¤ÀÚ ) ´Â º¯°æ °¡´É
+
+	// getName() ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : method overriding. ï¿½Î¸ğ¿¡°Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	// method overridong ï¿½ï¿½ï¿½ï¿½ : ï¿½Ş¼Òµï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½, ï¿½Ş¼Òµï¿½ ï¿½Ì¸ï¿½, ï¿½Ä¶ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½İµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½
+	// ï¿½ï¿½
+	// ï¿½ï¿½ï¿½Ä¾ï¿½ ( ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ) ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
 		return "tomson";
 	}
-	
+
 	void callSuper() {
 		System.out.println(super.getName());
 	}
-	// ÀÚ½Ä Å¸ÀÔÀÇ °´Ã¼¸¦ »ı¼ºÇÏ¸é ¸Ş¸ğ¸®¿¡ ¸ÕÀú ºÎ¸ğ °´Ã¼°¡ »ı¼ºÀÌ µÇ°í ±× ¾Æ·¡ ÀÚ½Ä °´Ã¼°¡ µû¶ó ºÙÀ½.
+	// ë¶€ëª¨ í´ë˜ìŠ¤ê°€ ì˜ˆì™¸ í´ë˜ìŠ¤ë¥¼ (throw) ë¥¼ ì“°ë©´ ìì‹ì€ throw í•´ë„ ë˜ê³  ì•ˆí•´ë„ ëœë‹¤.
+	// ë¶€ëª¨ í´ë˜ìŠ¤ê°€ throw í•˜ì§€ ì•ŠëŠ”ë° ìì‹ì€ throw ë¥¼ í• ìˆ˜ ì—†ë‹¤.
+	public String getAddress() throws Exception {
+		if (address.equals("")) {
+			throw new Exception();
+		}
+		return "london";
+	}
+
+	// ï¿½Ú½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ş¸ğ¸®¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°ï¿½ ï¿½ï¿½ ï¿½Æ·ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½.
 	public static void main(String[] args) {
-		// ´ÙÇü¼º 
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Child c = new Child();
 		Parent x = new Child();
 		Object o = new Child();
-		
+
 		System.out.println(x.getName());
 		System.out.println();
-		
+
 		/*
-		// ¸Ş¼Òµå ¿À¹ö¶óÀÌµùÀÇ °æ¿ì ¹«Á¶°Ç ÀÚ½Ä ¸Ş¼Òµå°¡ È£ÃâµÊ.
-		System.out.println(c.getName());
-		//static method ¾È¿¡¼­´Â this, super¸¦ »ç¿ëÇÒ¼ö ¾ø´Ù.
-//		System.out.println(super.getName());
-		c.callSuper();
-		System.out.println(c.getAddress());
-		System.out.println(c.name);*/
+		 * // ï¿½Ş¼Òµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½Ş¼Òµå°¡ È£ï¿½ï¿½ï¿½.
+		 * System.out.println(c.getName()); //static method ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ this, superï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½
+		 * ï¿½ï¿½ï¿½ï¿½. // System.out.println(super.getName()); c.callSuper();
+		 * System.out.println(c.getAddress()); System.out.println(c.name);
+		 */
 	}
 
 }

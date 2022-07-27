@@ -58,7 +58,7 @@ public class MethodTest2 {
 		return index;
 	}
 	public static void main(String[] args) {
-		System.out.println(loopString(4, "ÁöÀ²ÀÌ "));
+		System.out.println(loopString(4, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "));
 		System.out.println(reverse(true));
 	}
 

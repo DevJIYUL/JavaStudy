@@ -2,6 +2,10 @@ package com.book3;
 
 import java.util.ArrayList;
 
+import com.exception.DuplicatedISBNException;
+import com.exception.NoResultException;
+import com.exception.NoSuchBookException;
+
 public class BookTest {
 
 	public static void main(String[] args) {
@@ -14,36 +18,54 @@ public class BookTest {
 		Book b7 = new Novel("65218", "FOX_SECRET", "MONET", "MONET.KR", 8000, "ANIMAL","INFOMATION");
 		Book b8 = new Novel("79218", "OLD MAN AND OCEAN", "FRANCESS", "OCEAN.KR", 10000, "SURVIVE","HORROR");
 		BookManager bm = BookManager.getInstance();
-		
-		bm.add(b4);
-		bm.add(b5);
-		bm.add(b6);
-		bm.add(b7);
-		bm.add(b8);
+		addException(bm,b4);
+		addException(bm, b5);
+		addException(bm, b6);
+		addException(bm, b7);
+		addException(bm, b8);
 //		System.out.println(bm);
 		String removebn = "45234";
 		System.out.println("**************************remove book : "+ removebn +" **************************");
-		bm.remove(removebn);
-		String findIsbn = "34985";
+		removeException(bm,removebn);
+		;
+		String findIsbn = "3498500";
 		System.out.println("**************************search :"+findIsbn+"**************************");
-		System.out.println(bm.findByIsbn(findIsbn));
-		String findByTitle = "FOX";
+		findByIsbnException(bm,findIsbn);
+		String findByTitle = "FOXㅌㅌ";
 		System.out.println("**************************search title "+findByTitle+" **************************");
-		System.out.println(bm.findByTitle(findByTitle));
+		findByTitleException(bm,findByTitle);
 		System.out.println("************************** MAGAZINE **************************");
-		System.out.println(bm.getMagazines());
+		
+		try {
+			System.out.println(bm.getMagazines());
+		} catch (NoResultException e) {
+			System.out.println("Magazines 도서는 존재하지 않습니다.");
+			e.printStackTrace();
+		}
 		System.out.println("**************************NOVEL **************************");
-		for (Novel nov : bm.getNovels()) {
-			System.out.println(nov);
+		try {
+			for (Novel nov : bm.getNovels()) {
+				System.out.println(nov);
+			}
+		} catch (NoResultException e) {
+			System.out.println("Novels 도서는 존재하지 않습니다.");
+			e.printStackTrace();
 		}
 		System.out.println();
 		System.out.println("**************************total price : "+bm.getTotalPrice()+"**************************");
 		System.out.println("**************************total price avg : "+bm.getPriceAverage()+"**************************");
 		int year = 2022;
 		System.out.println("************* magazine year"+year+" search*****************");
-		for (Magazine m : bm.findMagazineByYear(year)) {
-			System.out.println(m.toString());
-		}
+		ArrayList<Magazine> temp;
+		try {
+			temp = bm.findMagazineByYear(year);
+			for (Magazine m : temp) {
+				System.out.println(m.toString());
+			}
+		} catch (NoResultException e) {
+			System.out.println("해당 "+year+"년도의 도서가 존재하지 않습니다.");
+			e.printStackTrace();
+		} 
 		int price1 = 2000;
 		int price2 = 8000;
 		System.out.println("************* price between "+price1+" and "+price2+" *****************");
@@ -57,35 +79,46 @@ public class BookTest {
 		}
 	}
 
-	static void addInfo(Boolean flag) {
-		if (flag) {
-			System.out.println("������ �߰��Ǿ����ϴ�");
-		}else {
-			System.out.println("���� 100���� �Ѿ����ϴ�.");
+	private static void findByTitleException(BookManager bm, String findByTitle) {
+		try {
+			System.out.println(bm.findByTitle(findByTitle));
+		} catch (NoResultException e) {
+//			System.out.println("찾으시려는 제목 "+findByTitle+" 의 도서가 존재하지 않습니다.");
+			e.printStackTrace();
 		}
+
+		
 	}
-	static void removeinfo(Boolean flag) {
-		if(flag) {
-			System.out.println("�ش� ������ �����Ǿ����ϴ�");
-		}else {
-			System.out.println("�ش��ϴ� ������ �����ϴ�.");
+
+	private static void findByIsbnException(BookManager bm, String findIsbn) {
+		try {
+			System.out.println(bm.findByIsbn(findIsbn));
+		} catch (NoSuchBookException e) {
+//			System.out.println("찾으실려는 "+findIsbn+"의 도서가 존재하지 않습니다.");
+			e.printStackTrace();
 		}
+		
 	}
-	static void printBookInfo(Book book) {
-		Book[] t = new Book[1];
-		t[0] = book;
-		printBookInfo(t);
-	}
-	static void printBookInfo(Book[] book) {
-		for (Book b : book) {
-			if (b == null) {
-				break;
-			}
-			if (b instanceof Magazine) {
-				System.out.printf("%-8s | %-10s | %-5s | %-8s | %-8d | %-10s | %-4d | %-2d  %n",b.getIsbn(),b.getTitle(),b.getAuthor(),b.getPublisher(),b.getPrice(),b.getDesc(),((Magazine) b).getYear(),((Magazine) b).getMonth());
-			}else if (b instanceof Novel) {
-				System.out.printf("%-8s | %-10s | %-5s | %-8s | %-8d | %-10s | %-10s %n",b.getIsbn(),b.getTitle(),b.getAuthor(),b.getPublisher(),b.getPrice(),b.getDesc(),((Novel) b).getGenre());
-			}
+
+	private static void removeException(BookManager bm, String removebn) {
+		try {
+			bm.remove(removebn);
+		} catch (NoSuchBookException e) {
+			System.out.println("지울려는 도서 "+removebn+"가 없습니다.");
+			e.printStackTrace();
 		}
+		
 	}
+
+	private static void addException(BookManager bm, Book b) {
+		try {
+			bm.add(b);
+		} catch (DuplicatedISBNException e) {
+			System.out.println("이미 등록된 책입니다.");
+			e.printStackTrace();
+		}
+		
+	}
+
+
 }
