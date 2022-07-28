@@ -1,0 +1,23 @@
+Stream
+:일련의 데이터를 이동시키는 입출력 파이프 혹은 그 데이터\
+Stream 종류
+	구분							Stream 종류
+입력용 / 출력용				InputStream / OutputStream
+입출력 단위(char/byte)		Character Stream/Byte Stream
+데이터 입출력 방법(직/간접)		Node(Sink) Stream/Process Stream
+----------------------------------------------------------------
+Node(Sink) Stream
+근원지/목적지		Byte stream					Character stream
+memory		ByteArrayInputStream		CharArrayReader
+			ByteArrayOutStream			CharArrayWriter
+file		FileInputStream				FileReader
+			FileOutputStream			FileWriter
+----------------------------------------------------------------
+Process Stream
+처리				Byte Stream				Character Stream
+버퍼링		BufferedInputStream		BufferdReader
+			BufferedOutputStream	BufferdWriter
+자료변환		DataInputStream
+(기본자료형인식)	DataOutputStream
+객체직렬화		ObjectInputStream
+(객체입출력)	ObjectOutputStream
