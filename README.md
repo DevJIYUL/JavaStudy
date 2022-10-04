@@ -14,4 +14,17 @@ Add override method and concrete method
 
 [ShapeUser](https://github.com/DevJIYUL/JavaStudy/blob/main/src/com/abst/ShapeUser.java) class can call Circle,Rect as Shape object
 
-
+## Exception
+Java has not working with two ways Error, Exception
+Exception usually user's or wrong systex error, error is hardware or application error
+Two types of Exception Exception is error in processing compile, Runtime Exception is not in processing compile
+In this two case, must catch out
+```
+try{
+  code...
+}catch(Exceptiontype){
+  catching error
+}finally{
+  if catch...
+}
+```
