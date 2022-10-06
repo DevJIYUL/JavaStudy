@@ -19,12 +19,28 @@ Java has not working with two ways Error, Exception
 Exception usually user's or wrong systex error, error is hardware or application error
 Two types of Exception Exception is error in processing compile, Runtime Exception is not in processing compile
 In this two case, must catch out
+
+Try catch is Catching out error in code
 ```
 try{
-  code...
+  code...(might error)
 }catch(Exceptiontype){
   catching error
 }finally{
   if catch...
 }
 ```
+
+There are lots of type of Exception, so this is the way error exception depends on 
+```
+try{
+  code...(might error)
+}catch(NullPointException nullpointexception){
+  catching error NullPointException
+}catch(ArrayIndexOutOfBoundsException arrayindexoutofboundsexception){
+  catching error ArrayIndexOutOfBoundsException
+}finally{
+  if catch...
+}
+```
+Can catch out error as much as you want
