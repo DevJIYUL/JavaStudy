@@ -46,3 +46,17 @@ try{
 Can catch out error as much as you want
 
 ## Inherit
+Java has Inherit conception
+A class want B class member,method
+```
+public class A extends B
+```
+When A class need method go if B class already have method go
+A class should modify go method wirh @override annotation
+```
+@override
+void go(){
+  Modify...
+}
+```
+Method name,return must same with parent class B
