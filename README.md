@@ -44,3 +44,5 @@ try{
 }
 ```
 Can catch out error as much as you want
+
+## Inherit
