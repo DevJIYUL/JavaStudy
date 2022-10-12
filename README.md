@@ -47,7 +47,7 @@ Can catch out error as much as you want
 
 ## Inherit
 Java has Inherit conception
-A class want B class member,method
+A class want B class member,method let check [here](https://github.com/DevJIYUL/JavaStudy/blob/main/src/com/inherit/Manager.java)
 ```
 public class A extends B
 ```
@@ -60,3 +60,4 @@ void go(){
 }
 ```
 Method name,return must same with parent class B
+At other class can reference parent class, child class like [here](https://github.com/DevJIYUL/JavaStudy/blob/main/src/com/inherit/BounsTest.java)
