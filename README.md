@@ -61,3 +61,11 @@ void go(){
 ```
 Method name,return must same with parent class B
 At other class can reference parent class, child class like [here](https://github.com/DevJIYUL/JavaStudy/blob/main/src/com/inherit/BounsTest.java)
+
+## Encapsulation
+when inherit class directly field date reference cause error
+So set field  date with access modifier ``` private ```
+And make field data setting thru getter setter method let check [here](https://github.com/DevJIYUL/JavaStudy/blob/main/src/com/member/Member.java)
+
+Access modifier ```private``` data only referenced with getter setter
+It is one of kind of OOP
